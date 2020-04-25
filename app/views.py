@@ -11,12 +11,12 @@ def index():
     '''
     #getting the general sources
     general_source=get_sources('general')
-    business=get_sources('business')
+    health=get_sources('health')
     entertainment=get_sources('entertainment')
     sport=get_sources('sports')
     technology=get_sources('technology')
     title='Top Headlines'
-    return render_template('index.html',title=title,general=general_source,business=business,entertainment=entertainment,sport=sport,technology=technology)
+    return render_template('index.html',title=title,general=general_source,health=health,entertainment=entertainment,sport=sport,technology=technology)
 @app.route('/articles/<id>')
 def Headlines(id):
 

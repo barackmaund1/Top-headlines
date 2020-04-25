@@ -62,7 +62,7 @@ def process_results(source_list):
 
 def get_headlines(source):
     
-    get_article_url=top_headlines_url.format(article,api_key)
+    get_article_url=top_headlines_url.format(source,api_key)
     with urllib.request.urlopen(get_article_url) as url:
         article_data=url.read()
         article_response=json.loads(article_data)
