@@ -1,7 +1,7 @@
 import unittest
-from models import source
+from app.models import source
 
-Sources=source.Source
+Source=source.Source
 
 class ArticleTest(unittest.TestCase):
     '''
@@ -12,7 +12,7 @@ class ArticleTest(unittest.TestCase):
         '''
         Set up amethod that will run every test
         '''
-        self.new_article=Article( "abc-news",
+        self.new_source=Source( "abc-news",
                     "ABC News",
                     "Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.",
                     "https://abcnews.go.com",
