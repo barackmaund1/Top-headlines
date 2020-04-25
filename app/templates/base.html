@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% if title %}
+        <title> {{ title }}</title>
+        {% else %}
+        <title> Worldwide News </title>
+        {% endif %}
+    </head>
+    <body>
+        {% extends 'bootstrap/base.html'%}
+
+        <!-- Navbar block  --> 
+            {% block navbar %}
+
+                {% include 'navbar.html' %}
+                
+            {% endblock %}
+          <!-- Content block -->
+
+        {% block content %}
+
+        {% endblock%}  
+    </body>
+</html>    
