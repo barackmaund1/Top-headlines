@@ -1,23 +1,19 @@
-
-{% extends 'base.html'%}
-{% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/macro.css')}}">
-{% endblock %}
-
 {% macro displaySourceList(source_list) %}
         
             <div class="card-body">
                 {% for source in source_list %}
-                <div class="card-title">
-                    <h4><a href="{{source.url}}">{{ source.name}}</a></h4>  
-                </div>
-                <div class="card-content">
-                        <p>{{source.description}}</p>
-                </div>
+                <div class="card">
+                    <div class="card-title">
+                        <h4><a href="{{source.url}}">{{ source.name}}</a></h4>  
+                    </div>
+                    <div class="card-content">
+                            <p>{{source.description}}</p>
+                    </div>
                     <diV class="">
                         <P><a href="/articles/{{source.id}}">Lastest stories</a></P>
                     </diV>
+                </div>
+                
                 {% endfor %}
  
                 
