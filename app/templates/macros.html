@@ -2,7 +2,7 @@
         
             <div class="card-body">
                 {% for source in source_list %}
-                <div class="card">
+                <div class="card-content">
                     <div class="card-title">
                         <h4><a href="{{source.url}}">{{ source.name}}</a></h4>  
                     </div>
@@ -10,7 +10,7 @@
                             <p>{{source.description}}</p>
                     </div>
                     <diV class="">
-                        <P><a href="/articles/{{source.id}}">Lastest stories</a></P>
+                        <P><a href="/articles/{{source.id}}">Lastest stories...</a></P>
                     </diV>
                 </div>
                 

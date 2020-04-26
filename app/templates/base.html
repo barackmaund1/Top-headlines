@@ -7,12 +7,21 @@
         <title> {{ title }}</title>
         {% else %}
         <title> Worldwide News </title>
+        
         {% endif %}
-       
+        
     </head>
 
     <body>
         {% extends 'bootstrap/base.html'%}
+
+        {%block styles %}
+
+            {{super() }}
+            <!-- Importing the simple mde css and js files   -->
+        
+
+        {% endblock %}  
 
         <!-- Navbar block  --> 
             {% block navbar %}
@@ -24,6 +33,9 @@
 
         {% block content %}
 
-        {% endblock%}  
+        {% endblock%} 
+        
+        
+        
     </body>
 </html>    

@@ -1,9 +1,14 @@
 .container{
-    background-color:white ;
-    font-family: 'Rokkitt', serif;
+
+  background-color:rgb(207, 158, 10);
+  color: rgb(46, 38, 35);  
 
 }
 .card{
-    box-sizing: border-box;
-    border-bottom:rgb(155, 149, 149) ;
+    
+   border-bottom:rgb(155, 149, 149) ;
+}
+.header{
+  font-weight: 600;
+  font-family: 'Tangerine', cursive;
 }

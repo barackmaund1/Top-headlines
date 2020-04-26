@@ -92,8 +92,20 @@ def process_new_articles(article_list):
         article_results.append(new_article)
 
     return article_results    
+def search_source(source_name):
+    search_source=top_headlines_url.format(source_name,api_key)
+    with urllib.request.urlopen(search_source) as url:
+        search_source_data=url.read()
+        search_source_response=json.load(search_source_data)
+
+        search_source_results=None
+
+        if search_source_response['sources']:
+            search_source_list=search_source_response['sources']
+            search_source_results=process_results(search_source_list)
 
 
+    return search_source_results        
 
 
 

@@ -1,6 +1,8 @@
-from flask import render_template
+from flask import render_template,request,redirect,url_for
 from app import app
-from .request import get_sources,get_headlines
+from .request import get_sources,get_headlines,search_source
+from .form import RegistrationForm,LoginForm
+
 
 # Views
 @app.route('/')
@@ -16,7 +18,13 @@ def index():
     sport=get_sources('sports')
     technology=get_sources('technology')
     title='Top Headlines'
-    return render_template('index.html',title=title,general=general_source,health=health,entertainment=entertainment,sport=sport,technology=technology)
+    search_source=request.args.get('source_query')
+
+    if search_source:
+        return redirect(url_for('search',source_name=search_source))
+
+    else:
+        return render_template('index.html',title=title,general=general_source,health=health,entertainment=entertainment,sport=sport,technology=technology)
 @app.route('/articles/<id>')
 def Headlines(id):
 
@@ -27,3 +35,25 @@ def Headlines(id):
     source=id
     
     return render_template('headlines.html',articles=headlines_articles,source=source)    
+
+
+@app.route('/search/<source_name>')
+def search(source_name):
+    '''
+    View function to display the search results
+    '''
+    source_name_list=source_name.split('')
+    source_name_format='-'.join(source_name_list)
+    searched_sources=search_source(source_name_format)
+    title=f'search results for {source_name}'
+    return render_template('search.html',sources=searched_sources ,title=title)
+
+@app.route('/register') 
+def register() :
+    form=RegistrationForm()
+    return render_template('register.html',title='Register',form=form)
+
+@app.route('/login') 
+def login() :
+    form=LoginForm()
+    return render_template('login.html',title='login',form=form)
