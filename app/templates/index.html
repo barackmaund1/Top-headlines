@@ -5,12 +5,23 @@
     {{ super() }}
     <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
 {% endblock %}
-
 {% block content %} 
-   <div class="container">
 
+    
+    
+    
     <div class="container">
-        <form>
+
+        {% with messages = get_flashed_messages(with_categories=true)%}
+        {% if messages%}
+           {% for category,message in massages%}
+            <div class="alert alert-{{category}}">
+                  {{message}}
+            </div>
+            {%endfor%}
+             {% endif %}
+          {%endwith%}
+        <form class="form">
             <input type="text" name="source_query" placeholder="Search for a source" class="form-control">
             <input type="submit"  value="Submit" class="btn btn-default">
         </form>

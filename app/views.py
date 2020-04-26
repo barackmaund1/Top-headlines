@@ -1,4 +1,4 @@
-from flask import render_template,request,redirect,url_for
+from flask import render_template,request,redirect,url_for,flash
 from app import app
 from .request import get_sources,get_headlines,search_source
 from .form import RegistrationForm,LoginForm
@@ -42,15 +42,18 @@ def search(source_name):
     '''
     View function to display the search results
     '''
-    source_name_list=source_name.split('')
+    source_name_list=source_name.split(' ')
     source_name_format='-'.join(source_name_list)
     searched_sources=search_source(source_name_format)
     title=f'search results for {source_name}'
     return render_template('search.html',sources=searched_sources ,title=title)
 
-@app.route('/register') 
+@app.route('/register',methods=['GET','POST']) 
 def register() :
     form=RegistrationForm()
+    if form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!'),'success'
+        return redirect(url_for('index'))
     return render_template('register.html',title='Register',form=form)
 
 @app.route('/login') 
