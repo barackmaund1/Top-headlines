@@ -17,6 +17,13 @@ def create_app(config_name):
         WTF_CSRF_ENABLED = True,
         SECRET_KEY ='0add1611ecf8610320a09ff4b0e34e42'  
     )
+    
+     # Registering the blueprint
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
 
+    # setting config
+    from .request import configure_request
+    configure_request(app)
 
     return app

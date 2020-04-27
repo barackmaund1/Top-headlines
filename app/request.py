@@ -1,18 +1,21 @@
-from app import app
+
 
 import urllib.request,json
-from .models import article,source,top_headlines
+from models import Source,Top_headlines,Article
 
-Article=article.Article
-Source=source.Source
-Top_headlines=top_headlines.Top_headlines
+
+
 #Getting the api key
-api_key='e5847b6ab9a643469ea467c6e7965d8c'
-
+api_key=None
+article_url=None
+source_url=None
+top_headlines_url=None
+def configure_request(app):
 #Getting the Article base url
-article_url=app.config['EVERYTHING_API_BASE']
-source_url=app.config['SOURCE_API_BASE_URL']
-top_headlines_url=app.config['TOP_HEADLINES_API_BASE_URL']
+    global api_key,article_url,source_url,top_headlines_url
+    article_url=app.config['EVERYTHING_API_BASE']
+    source_url=app.config['SOURCE_API_BASE_URL']
+    top_headlines_url=app.config['TOP_HEADLINES_API_BASE_URL']
 
 def get_sources(category):
     '''

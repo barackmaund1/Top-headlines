@@ -1,7 +1,7 @@
 import unittest
-from  app.models import top_headlines
+from  app.models import Top_headlines
 
-Top_headlines=top_headlines.Top_headlines
+
 
 class ArticleTest(unittest.TestCase):
     '''
