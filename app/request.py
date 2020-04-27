@@ -1,7 +1,5 @@
-
-
 import urllib.request,json
-from models import Source,Top_headlines,Article
+from .models import Source,Top_headlines,Article
 
 
 
@@ -16,7 +14,7 @@ def configure_request(app):
     article_url=app.config['EVERYTHING_API_BASE']
     source_url=app.config['SOURCE_API_BASE_URL']
     top_headlines_url=app.config['TOP_HEADLINES_API_BASE_URL']
-
+    api_key=app.config['TOP_HEADLINES_API']
 def get_sources(category):
     '''
     Function that gets the json response to our url request
