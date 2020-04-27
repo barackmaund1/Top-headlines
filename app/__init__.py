@@ -1,21 +1,22 @@
 from flask import Flask
-from .config import DevConfig
 from flask_bootstrap import Bootstrap
+from config import config_options
 
-# Initializing application
-app = Flask(__name__,instance_relative_config = True)
-
-# Setting up configuration
-app.config.from_object(DevConfig,)
-
-# app.config.from_pyfile('config.py')
-app.config.update(
-    DEBUG = True,
-    WTF_CSRF_ENABLED = True,
-    SECRET_KEY ='0add1611ecf8610320a09ff4b0e34e42'  
-)
 # Iniializing Flask Extensions
-bootstrap = Bootstrap(app)
+bootstrap = Bootstrap()
+def create_app(config_name):
+    # Initializing application
+    app = Flask(__name__)
 
-from app import views
-from app import error
+    # Setting up configuration
+    app.config.from_object(config_options[config_name])
+
+    # app.config.from_pyfile('config.py')
+    app.config.update(
+        DEBUG = True,
+        WTF_CSRF_ENABLED = True,
+        SECRET_KEY ='0add1611ecf8610320a09ff4b0e34e42'  
+    )
+
+
+    return app
