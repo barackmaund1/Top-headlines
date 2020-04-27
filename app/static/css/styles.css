@@ -1,14 +1,16 @@
-.container{
+.article{
 
   background-color:rgb(223, 236, 105);
   color: rgb(26, 21, 19);  
 
 }
-.card{
-    
-   border-bottom:rgb(155, 149, 149) ;
-}
+
 .header{
   font-weight: 600;
   font-family: 'Tangerine', cursive;
+}
+.info{
+  margin-left: 10px;
+  margin-bottom: 5px;
+  margin-top:5px ;
 }
