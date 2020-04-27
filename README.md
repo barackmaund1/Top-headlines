@@ -2,7 +2,7 @@
 
 ## Author
 
-[Barack Maundu]()
+[Barack Maundu]('https://top-headline-49.herokuapp.com')
 
 # Description
 This is an application that will  assist people to retrive faster their best sources and get lastest news. The website will show news articles from several sources and news sources that a user can click to see morw news. The  application consumes news from the [News API](https://newsapi.org/)
