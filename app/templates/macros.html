@@ -1,3 +1,4 @@
+
 {% macro displaySourceList(source_list) %}
         
             <div class="card-body">
@@ -22,8 +23,10 @@
 
 {% macro display_Source_articles(source_articles_list) %}
 <div class="container" id="articles">
-    <div class="row" >
-        {% for article in source_articles_list %}
+    
+    {% for article in source_articles_list %}
+    
+        <div class="row" >
             <div class="col-sm-4">
                 <div class="card info">
                     <img src="{{article.urlToImage}}" alt="{{article.title}}" height="20%" width="70%" class="card-img">
@@ -44,5 +47,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         {% endfor %}
+    
     {% endmacro %}       
