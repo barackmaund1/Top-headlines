@@ -23,23 +23,22 @@
 
 {% macro display_Source_articles(source_articles_list) %}
 <div class="container" id="articles">
-    
-    {% for article in source_articles_list %}
-    
-        <div class="row" >
+ {% for article in source_articles_list%}
+      <div class="row" >
             <div class="col-sm-4">
                 <div class="card info">
-                    <img src="{{article.urlToImage}}" alt="{{article.title}}" height="20%" width="70%" class="card-img">
+                    <img src="{{article.urlToImage}}" alt="{{article.title}}" height="30%" width="80%" class="card-img">
                 </div>
             </div>
             <div class="col-sm-8">
                 <div class="card info">
-                    <div class="card-header title"><h4>{{article.source.name}}</h4> </div>
+                    <h4><strong>{{article.source.name}}</strong></h4>
                     <div class="card-body">
-                        <p class="desc">{{article.description}}</p>
-                        
+                        <p><em>{{article.description}}</em></p>
+                        <p>{{article.content}}</p>
+                        <p>posted by:{{article.author}}</p>
                         <div>
-                            <p>posted:{{article.publishedAt|truncate(13)}}</p>
+                            <p>posted on:{{article.publishedAt[:10]}}</p>
                         </div>
                         
 
